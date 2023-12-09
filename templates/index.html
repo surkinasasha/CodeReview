@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}
+Главная страница
+{% endblock %}
+
+{% block body %}
+<h1>
+    Статьи на сегодня 
+</h1>
+<div>
+    {{articles[0][2]}}
+</div>
+<div>
+    {% for article in articles%}
+<h2>
+<p><a href={{article[1]}}>{{article[0]}}</a></p>
+{% endfor %}
+</div>
+</h2>
+{% endblock %}
