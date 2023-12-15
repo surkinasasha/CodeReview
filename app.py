@@ -8,7 +8,7 @@ def update():
     threading.Timer(60.0, update).start()
     clear_database()
     fill_database()
-#update()
+update()
 def get_db():
      conn = sqlite3.connect(DATABASE)
      cursor = conn.cursor()
