@@ -4,6 +4,7 @@ from database import create_database, clear_database, fill_database
 import threading
 from my_parser import today
 from config import DATABASE
+create_database()
 def update():
     threading.Timer(60.0, update).start()
     clear_database()
