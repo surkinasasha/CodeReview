@@ -1,12 +1,14 @@
 from flask import Flask, render_template, url_for
 import sqlite3
-from database import create_database
+from database import create_database, clear_database, fill_database
 from my_parser import today
 from config import DATABASE
-import update
 import schedule
 import time
 create_database()
+def update():
+    clear_database()
+    fill_database()
 if __name__ == "__app.py__":
     try:
         update()
