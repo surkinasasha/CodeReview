@@ -5,7 +5,7 @@ from my_parser import today
 from config import DATABASE
 import schedule
 import time
-create_database()
+
 def update():
     clear_database()
     fill_database()
@@ -35,6 +35,7 @@ app = Flask(__name__)
 def index():
     articles = get_db()
     return render_template("index.html", articles = articles)
-if __name__ == "__main__":
-     app.run(debug=True)
- 
+
+if __name__ == '__main__':
+    create_database()
+    app.run(host="0.0.0.0", debug=True)
