@@ -6,7 +6,7 @@ def create_database():
     conn = sqlite3.connect(DATABASE)
     cursor = conn.cursor()
     sql ="CREATE TABLE articles (title TEXT, link TEXT, date TEXT)"
-    cursor.execute(sql)
+    #cursor.execute(sql)
     conn.close()
 def clear_database():
     conn = sqlite3.connect(DATABASE)
