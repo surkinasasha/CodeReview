@@ -1,15 +1,22 @@
 from flask import Flask, render_template, url_for
 import sqlite3
-from database import create_database, clear_database, fill_database
-import threading
+from database import create_database
 from my_parser import today
 from config import DATABASE
+import update
+import schedule
+import time
 create_database()
-def update():
-    threading.Timer(60.0, update).start()
-    clear_database()
-    fill_database()
-update()
+if __name__ == "__app.py__":
+    try:
+        update()
+        schedule.every().minute.do(update) 
+        while True:
+            schedule.run_pending()
+            time.sleep(1)
+    except Exception as ex: 
+        print(ex)
+        time.sleep(2)
 def get_db():
      conn = sqlite3.connect(DATABASE)
      cursor = conn.cursor()
@@ -26,7 +33,6 @@ app = Flask(__name__)
 def index():
     articles = get_db()
     return render_template("index.html", articles = articles)
-
 if __name__ == "__main__":
      app.run(debug=True)
  
