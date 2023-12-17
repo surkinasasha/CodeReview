@@ -37,5 +37,4 @@ def index():
     return render_template("index.html", articles = articles)
 
 if __name__ == '__main__':
-    create_database()
-    app.run(host="0.0.0.0", debug=True)
+    app.run(debug=True)
