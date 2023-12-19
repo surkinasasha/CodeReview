@@ -1,8 +1,9 @@
-version: "3.7"
 
 services:
-  app:
+  web: 
     build:
-      context: ./
+      context: app
+      target: builder
+    stop_signal: SIGINT
     ports:
-      - 5000:5000
+      - '8000:8000'
