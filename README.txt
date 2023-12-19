@@ -4,7 +4,7 @@ git clone https://github.com/surkinasasha/CodeReview.git
 cd CodeReview
 sh ./build.sh
 
-Сайт работает по ссылке http://127.0.0.1:5000 
+Сайт работает по ссылке =http://127.0.0.1:5000
 Необходимо будет подождать некоторое время, прежде чем сайт заработает 
 
 
