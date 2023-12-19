@@ -1,9 +1,11 @@
-
+version: '3'
 services:
-  web: 
+  web:
     build:
-      context: app
-      target: builder
-    stop_signal: SIGINT
+      dockerfile: Dockerfile
     ports:
-      - '8000:8000'
+      - "5000:5000"
+    volumes:
+      - ./database:/app/data
+volumes:
+  database:
