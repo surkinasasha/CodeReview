@@ -11,8 +11,7 @@ def update():
     fill_database()
 if __name__ == "__app.py__":
     try:
-        update()
-        schedule.every().minute.do(update) 
+        schedule.every().hour.do(update) 
         while True:
             schedule.run_pending()
             time.sleep(1)
@@ -35,7 +34,8 @@ app = Flask(__name__)
 def index():
     articles = get_db()
     return render_template("index.html", articles = articles)
-
 if __name__ == '__main__':
     create_database()
+    fill_database()
     app.run(debug=True)
+
