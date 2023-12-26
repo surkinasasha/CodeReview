@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 from datetime import datetime
 import pytz
+
 def today():
     time_zone = pytz.timezone('Asia/Yekaterinburg')
     current_date = datetime.now(time_zone).date()
