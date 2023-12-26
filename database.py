@@ -2,6 +2,7 @@ import sqlite3
 from my_parser import sum_articles
 from config import DATABASE
 articles = sum_articles()
+
 def create_database():
     conn = sqlite3.connect(DATABASE)
     cursor = conn.cursor()
@@ -9,6 +10,7 @@ def create_database():
     cursor.execute(sql)
     conn.commit()
     conn.close()
+    
 def clear_database():
     conn = sqlite3.connect(DATABASE)
     cursor = conn.cursor()
@@ -16,6 +18,7 @@ def clear_database():
     cursor.execute(sql)
     conn.commit()
     conn.close()
+    
 def fill_database():
     conn = sqlite3.connect(DATABASE)
     cursor = conn.cursor()
