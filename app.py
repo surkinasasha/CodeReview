@@ -9,6 +9,7 @@ import time
 def update():
     clear_database()
     fill_database()
+
 if __name__ == "__app.py__":
     try:
         schedule.every().hour.do(update) 
@@ -18,6 +19,7 @@ if __name__ == "__app.py__":
     except Exception as ex: 
         print(ex)
         time.sleep(2)
+        
 def get_db():
      conn = sqlite3.connect(DATABASE)
      cursor = conn.cursor()
@@ -29,8 +31,10 @@ def get_db():
      else:
         return res
      conn.close()
+    
 app = Flask(__name__)
 @app.route('/')
+
 def index():
     articles = get_db()
     return render_template("index.html", articles = articles)
